@@ -50,9 +50,19 @@ class MetricsTools():
 
 	def __init__(self, api_key, *args, **kwargs):
 		self.__client = RestClient(api_key, *args, **kwargs)
-		self.domain = Domain(self.__client, *args, **kwargs)
-		self.keyword = Keyword(self.__client, *args, **kwargs)
-		self.url = Url(self.__client, *args, **kwargs)
+		self.__verbose = kwargs.get('verbose', False)
+
+	def domain(self, domain):
+		domain_obj = Domain(self.__client, verbose=self.__verbose)
+		return domain_obj(domain)
+
+	def keyword(self, keyword):
+		keyword_obj = Keyword(self.__client, verbose=self.__verbose)
+		return keyword_obj(keyword)
+
+	def url(self, url):
+		url_obj = Url(self.__client, verbose=self.__verbose)
+		return url_obj(url)
 
 		
 
