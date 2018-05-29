@@ -5,6 +5,13 @@ https://metrics.tools/
 
 It builds upon the requests package. The goal is to achiev an easy syntax for the API calls like: `mt.domain('example.com').rankings.get()`
 
+*Note: I am not professional programmer. Install at your own risk. Useful tips are welcome :-).*
+
+## Install via pip
+```python
+pip install metrics-tools
+```
+
 ## Basic usage
 ```python
 from metrics_tools import MetricsTools
@@ -23,9 +30,9 @@ keyword_details = mt.keyword('api').details.get()
 ## Response
 The response is parsed into a simple object with fields as object attributes. Additionaly it contains the requests response as '._response'.
 ```python
-example_domain.values # → if values are present
-example_domain.json # → parsed json response
-example_domain.result # → 'success' or 'error'
+example_domain.values # if values are present
+example_domain.json # parsed json response
+example_domain.result # 'success' or 'error'
 ```
 
 ## More Parameters
